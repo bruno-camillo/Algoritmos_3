@@ -3,27 +3,28 @@
 #include "arvbin_busca.h"
 
 // retorna 1 se a árvore foi construída com sucesso, ou 0 se houve um erro
-int tree_build (arvore *A) {
-    if (!(A = malloc(sizeof(arvore)))) {
+int tree_build (arvore **A) {
+    if (!(*A = malloc(sizeof(arvore)))) {
         return 0; 
     }
-    A->raiz = NULL;
-    A->tam = 0;
+    (*A)->raiz = NULL;
+    (*A)->tam = 0;
 
     return 1; 
 }
 
 // retorna 1 se o nodo foi construído com sucesso, ou 0 se houve um erro
-int nodo_build (nodo *n, int chave, void *conteudo) {
-    if (!(n = malloc(sizeof(nodo)))) {
+int nodo_build (nodo **n, int chave, void *conteudo) {
+    if (!(*n = malloc(sizeof(nodo)))) {
         return 0; 
     }
 
-    n->chave = chave;
-    n->conteudo = conteudo;
-    n->pai = NULL;
-    n->esq = NULL;
-    n->dir = NULL;
+    (*n)->chave = chave;
+    (*n)->conteudo = conteudo;
+    (*n)->pai = NULL;
+    (*n)->esq = NULL;
+    (*n)->dir = NULL;
+    return 1;
 }
 
 // retorna 1 se a árvore foi liberada com sucesso, ou 0 se houve um erro

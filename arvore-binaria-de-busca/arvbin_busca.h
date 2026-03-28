@@ -22,10 +22,10 @@ typedef struct nodo {
 // funções para manipular a árvore binária de busca
 
 // inicializa a árvore A, alocando memória para ela e setando a raiz como NULL
-int tree_build (arvore *A);
+int tree_build (arvore **A);
 
 // inicializa o nodo n, alocando memória para ele e setando os ponteiros para NULL
-int nodo_build (nodo *n, int chave, void *conteudo);
+int nodo_build (nodo **n, int chave, void *conteudo);
 
 // desaloca a memória alocada para a árvore A e seus nodos
 int tree_free (arvore *A);
