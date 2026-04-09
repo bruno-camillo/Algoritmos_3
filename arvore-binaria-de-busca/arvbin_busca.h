@@ -1,13 +1,10 @@
 #ifndef ARVBINBUSCA
 #define AVRBINBUSCA
 
-// edefinição para pré compilar a struct nodo
-typedef struct nodo nodo;
-
 // estrutura de dados para a árvore binária de busca
 typedef struct arvore {
     nodo *raiz;
-    int tam;
+    int tam; // numero de nodos da arvore
 } arvore;
 
 // definição do nodo da árvore binária de busca
@@ -17,6 +14,7 @@ typedef struct nodo {
     nodo *dir;
     int chave;
     void *conteudo;
+    int altura;
 } nodo;
 
 // funções para manipular a árvore binária de busca
@@ -63,7 +61,7 @@ nodo * tree_successor (nodo *n);
 
 // inserção
 // insere o novo nodo n na árvore A
-int tree_insert (arvore *A, nodo *n);
+nodo * tree_insert (arvore *A, nodo *n);
 
 //transplante
 // substitui a subárvore enraizada em u pela subárvore enraizada em v

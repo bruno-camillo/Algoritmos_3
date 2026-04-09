@@ -24,6 +24,8 @@ int nodo_build (nodo **n, int chave, void *conteudo) {
     (*n)->pai = NULL;
     (*n)->esq = NULL;
     (*n)->dir = NULL;
+    (*n)->altura = 0;
+
     return 1;
 }
 
@@ -132,7 +134,7 @@ nodo * tree_successor (nodo *n) {
     return y;
 }
 
-int tree_insert (arvore *A, nodo *n) {
+nodo * tree_insert (arvore *A, nodo *n) {
     // verifica se os ponteiros para a árvore e para o nodo são nulos
     if (!A || !n) {
         return 0; 
@@ -159,7 +161,7 @@ int tree_insert (arvore *A, nodo *n) {
 
     A->tam++;
 
-    return 1;
+    return y;
 }
 
 // retorna 1 se o nodo foi inserido com sucesso, ou 0 se houve um erro
